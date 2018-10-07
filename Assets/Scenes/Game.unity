@@ -290,6 +290,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &531049451 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114839740392055244, guid: d5b7c8d1aa3594fe6897998e1d80ad14,
+    type: 2}
+  m_PrefabInternal: {fileID: 28727238}
+  m_Script: {fileID: 11500000, guid: 25ef8405e18dd4bf6b169643a1ceb042, type: 3}
 --- !u!1 &1020198511
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1453667142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,7 +519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2096906489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GridManager: {fileID: 2086196450}
-  UIBoard: {fileID: 0}
+  UIBoard: {fileID: 531049451}
 --- !u!114 &2096906490
 MonoBehaviour:
   m_ObjectHideFlags: 0
