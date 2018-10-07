@@ -5,11 +5,14 @@ using Zenject;
 
 public class KomaGenerator : IKomaGenerator
 {
+    DiContainer _container;
     Koma _komaPrefab;
     UIBoard _uiBoard;
 
-    public KomaGenerator(Koma komaPrefab, UIBoard uiBoard)
+    [Inject]
+    public KomaGenerator(DiContainer container, Koma komaPrefab, UIBoard uiBoard)
     {
+        _container = container;
         _komaPrefab = komaPrefab;
         _uiBoard = uiBoard;
     }
@@ -18,6 +21,7 @@ public class KomaGenerator : IKomaGenerator
     {
         var parent = _uiBoard.GetKomaParent();
         var koma = GameObject.Instantiate<Koma>(_komaPrefab, parent);
+        _container.Inject(koma);
         return koma;
     }
 }
