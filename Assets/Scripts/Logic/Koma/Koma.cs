@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
+[DisallowMultipleComponent]
 public class Koma : MonoBehaviour {
     [Inject] UIBoardGridManager UIBoardGridManager;
 
