@@ -25,4 +25,9 @@ public class Koma : MonoBehaviour {
         var position = UIBoardGridManager.GetPosition(x, y);
         transform.position = position;
     }
+
+    public class Factory : PlaceholderFactory<Koma> , IKomaFactory
+    {
+        
+    }
 }
