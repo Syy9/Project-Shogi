@@ -9,6 +9,7 @@ public class Koma : MonoBehaviour {
 
     IEnumerator Start()
     {
+        Move(0, 0);
         for (int x = 0; x < 9; x++)
         {
             for (int y = 0; y < 9; y++)
