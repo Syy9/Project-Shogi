@@ -9,14 +9,12 @@ public class Koma : MonoBehaviour {
 
     IEnumerator Start()
     {
-        Debug.Log("hogehogeStart");
         for (int x = 0; x < 9; x++)
         {
             for (int y = 0; y < 9; y++)
             {
                 yield return new WaitForSeconds(1);
                 Move(x, y);
-                Debug.Log("x " + x  +"y" + y);
             }
         }
     }
