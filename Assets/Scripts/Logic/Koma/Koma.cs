@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 [DisallowMultipleComponent]
 public class Koma : MonoBehaviour {
     [Inject] UIBoardGridManager UIBoardGridManager;
+    [Inject] KomaIconLoader IconLoader;
+    [SerializeField] Image image;
+    KomaType Type;
 
     IEnumerator Start()
     {
@@ -19,13 +23,37 @@ public class Koma : MonoBehaviour {
             }
         }
     }
+
+    public void Init(Data data)
+    {
+        Type = data.Type;
+        image.sprite = IconLoader.Load(Type);
+        Move(data.InitPosition.x, data.InitPosition.y);
+    }
+
     public void Move(int x, int y)
     {
         var position = UIBoardGridManager.GetPosition(x, y);
         transform.position = position;
     }
 
-    public class Factory : PlaceholderFactory<Koma> , IKomaFactory
+    public class Data
+    {
+        public KomaType Type;
+        public Vector2Int InitPosition;
+    }
+
+    public enum KomaType
+    {
+        None,
+        Type001, //王
+        Type002, //飛車
+        Type003, //角
+        Type004,
+        Type005,
+    }
+
+    public class Factory : PlaceholderFactory<Koma.Data, Koma> , IKomaFactory
     {
         
     }

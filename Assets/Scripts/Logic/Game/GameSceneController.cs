@@ -7,10 +7,13 @@ public class GameSceneController : MonoBehaviour
 {
     [Inject] IKomaFactory komaFactory;
 	IEnumerator Start () {
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 9; i++)
         {
             yield return new WaitForSeconds(1);
-            komaFactory.Create();
+            Koma.Data dummy = new Koma.Data();
+            dummy.InitPosition = new Vector2Int(i,0);
+            dummy.Type = Koma.KomaType.Type002;
+            komaFactory.Create(dummy);
         }
 	}
 }

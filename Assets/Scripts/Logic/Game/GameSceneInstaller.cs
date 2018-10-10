@@ -9,7 +9,7 @@ public class GameSceneInstaller : MonoInstaller<GameSceneInstaller>
     {
         Container.Bind<UIBoard>().FromInstance(UIBoard);
         Container.Bind<UIBoardGridManager>().FromInstance(GridManager);
-        Container.BindFactoryCustomInterface<Koma, Koma.Factory, IKomaFactory>().FromFactory<KomaFactory>();
         Container.Bind<KomaIconLoader>().ToSelf().AsSingle();
+        Container.BindFactoryCustomInterface<Koma.Data, Koma, Koma.Factory, IKomaFactory>().FromFactory<KomaFactory>();
     }
 }

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224983902507934508}
   - component: {fileID: 222600313774661944}
   - component: {fileID: 114548836573525630}
-  - component: {fileID: 114692917853616330}
+  - component: {fileID: 114897800135104018}
   m_Layer: 5
   m_Name: Koma
   m_TagString: Untagged
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114692917853616330
+--- !u!114 &114897800135104018
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d8671eec0874d7e8810d5ffffe0526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 114548836573525630}
 --- !u!222 &222600313774661944
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -82,13 +83,13 @@ RectTransform:
   m_GameObject: {fileID: 1310958194740882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000077, y: 1.0000077, z: 1.0000077}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
