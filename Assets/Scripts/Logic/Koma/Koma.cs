@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MasterData;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -41,16 +42,6 @@ public class Koma : MonoBehaviour {
     {
         public KomaType Type;
         public Vector2Int InitPosition;
-    }
-
-    public enum KomaType
-    {
-        None,
-        Type001, //王
-        Type002, //飛車
-        Type003, //角
-        Type004,
-        Type005,
     }
 
     public class Factory : PlaceholderFactory<Koma.Data, Koma> , IKomaFactory

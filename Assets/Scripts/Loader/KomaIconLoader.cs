@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MasterData;
+using UnityEngine;
 
 public class KomaIconLoader
 {
@@ -8,15 +9,15 @@ public class KomaIconLoader
         return Resources.Load<Sprite>(KOMA_PATH + fileName);
     }
 
-    public Sprite Load(Koma.KomaType type)
+    public Sprite Load(KomaType type)
     {
         string fileName = null;
         switch (type)
         {
-            case Koma.KomaType.Type001:
+            case KomaType.Type001:
                 fileName = "sgl01";
                 break;
-            case Koma.KomaType.Type002:
+            case KomaType.Type002:
                 fileName = "sgl02";
                 break;
             default:
