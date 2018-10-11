@@ -616,7 +616,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: 637d1df4-ca76-425c-8e33-9466e514ad50
   projectName: Project-Shogi
   organizationId: syy12345
