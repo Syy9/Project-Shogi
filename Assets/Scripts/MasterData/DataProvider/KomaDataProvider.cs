@@ -18,11 +18,11 @@ namespace MasterData
         public IEnumerable<KomaData> Create()
         {
             var data = new List<KomaData>();
-            data.Add(new KomaData() { KomaType = KomaType.Type001, IconAssetName = "sgl01" });
-            data.Add(new KomaData() { KomaType = KomaType.Type002, IconAssetName = "sgl02" });
-            data.Add(new KomaData() { KomaType = KomaType.Type003, IconAssetName = "sgl03" });
-            data.Add(new KomaData() { KomaType = KomaType.Type004, IconAssetName = "sgl04" });
-            data.Add(new KomaData() { KomaType = KomaType.Type005, IconAssetName = "sgl05" });
+            data.Add(new KomaData() { KomaType = KomaType.Type001, Lv = 1, IconAssetName = "sgl01" });
+            data.Add(new KomaData() { KomaType = KomaType.Type002, Lv = 1, IconAssetName = "sgl02" });
+            data.Add(new KomaData() { KomaType = KomaType.Type003, Lv = 1, IconAssetName = "sgl03" });
+            data.Add(new KomaData() { KomaType = KomaType.Type004, Lv = 1, IconAssetName = "sgl04" });
+            data.Add(new KomaData() { KomaType = KomaType.Type005, Lv = 1, IconAssetName = "sgl05" });
             return data;
         }
     }
