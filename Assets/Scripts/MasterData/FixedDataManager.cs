@@ -7,16 +7,9 @@ namespace MasterData
     {
         public FixedDataManager()
         {
-            KomaDatas = new List<KomaData>();
-            KomaDatas.Add(new KomaData() { KomaType = KomaType.Type001, IconAssetName = "sgl01" });
-            KomaDatas.Add(new KomaData() { KomaType = KomaType.Type002, IconAssetName = "sgl02" });
-            KomaDatas.Add(new KomaData() { KomaType = KomaType.Type003, IconAssetName = "sgl03" });
-            KomaDatas.Add(new KomaData() { KomaType = KomaType.Type004, IconAssetName = "sgl04" });
-            KomaDatas.Add(new KomaData() { KomaType = KomaType.Type005, IconAssetName = "sgl05" });
-
+            KomaDataProvider = new KomaDataProvider();
         }
-
-        public List<KomaData> KomaDatas { get; private set; }
+        public IKomaDataProvider KomaDataProvider { get; private set; }
     }
 
 

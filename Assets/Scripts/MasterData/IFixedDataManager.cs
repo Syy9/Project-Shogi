@@ -4,6 +4,6 @@ namespace MasterData
 {
     public interface IFixedDataManager
     {
-        List<KomaData> KomaDatas { get; }
+        IKomaDataProvider KomaDataProvider { get; }
     }
 }
