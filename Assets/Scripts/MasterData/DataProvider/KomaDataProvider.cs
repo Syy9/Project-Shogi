@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+
 namespace MasterData
 {
     public interface IKomaDataProvider
