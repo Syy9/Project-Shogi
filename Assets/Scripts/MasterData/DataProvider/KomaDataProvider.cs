@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 
 namespace MasterData
 {
     public interface IKomaDataProvider
     {
         IEnumerable<KomaData> Data { get; }
+        KomaData Find(KomaType type);
     }
     public class KomaDataProvider : IDataCreater<KomaData> , IKomaDataProvider
     {
@@ -24,6 +26,11 @@ namespace MasterData
             data.Add(new KomaData() { KomaType = KomaType.Type004, Lv = 1, IconAssetName = "sgl04" });
             data.Add(new KomaData() { KomaType = KomaType.Type005, Lv = 1, IconAssetName = "sgl05" });
             return data;
+        }
+
+        public KomaData Find(KomaType type)
+        {
+            return Data.First(data => data.KomaType == type);
         }
     }
 }
