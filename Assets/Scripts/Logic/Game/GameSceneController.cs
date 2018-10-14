@@ -6,15 +6,16 @@ using Zenject;
 
 public class GameSceneController : MonoBehaviour
 {
+    [Inject] IFixedDataManager fixedDataManager;
     [Inject] IKomaFactory komaFactory;
 	IEnumerator Start () {
-		for (int i = 0; i < 9; i++)
+        foreach (var komaData in fixedDataManager.KomaDataProvider.Data)
         {
             yield return new WaitForSeconds(1);
-            Koma.Data dummy = new Koma.Data();
-            dummy.InitPosition = new Vector2Int(i,0);
-            dummy.Type = KomaType.Type002;
-            komaFactory.Create(dummy);
+            var initData = new Koma.Data();
+            initData.Type = komaData.KomaType;
+            initData.InitPosition = new Vector2Int(0, 0);
+            komaFactory.Create(initData);
         }
 	}
 }

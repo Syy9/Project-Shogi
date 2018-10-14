@@ -7,6 +7,7 @@ using Zenject;
 
 [DisallowMultipleComponent]
 public class Koma : MonoBehaviour {
+    [Inject] IFixedDataManager FixedDataManager;
     [Inject] UIBoardGridManager UIBoardGridManager;
     [Inject] KomaIconLoader IconLoader;
     [SerializeField] Image image;
@@ -25,11 +26,12 @@ public class Koma : MonoBehaviour {
         }
     }
 
-    public void Init(Data data)
+    public void Init(Data initData)
     {
-        Type = data.Type;
-        image.sprite = IconLoader.Load(Type);
-        Move(data.InitPosition.x, data.InitPosition.y);
+        Type = initData.Type;
+        var komaData = FixedDataManager.KomaDataProvider.Find(initData.Type);
+        image.sprite = IconLoader.Load(komaData.IconAssetName);
+        Move(initData.InitPosition.x, initData.InitPosition.y);
     }
 
     public void Move(int x, int y)
