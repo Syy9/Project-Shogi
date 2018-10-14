@@ -26,7 +26,7 @@ public class Koma : MonoBehaviour {
         }
     }
 
-    public void Init(Data initData)
+    public void Init(InitData initData)
     {
         Type = initData.Type;
         var komaData = FixedDataManager.KomaDataProvider.Find(initData.Type);
@@ -40,13 +40,13 @@ public class Koma : MonoBehaviour {
         transform.position = position;
     }
 
-    public class Data
+    public class InitData
     {
         public KomaType Type;
         public Vector2Int InitPosition;
     }
 
-    public class Factory : PlaceholderFactory<Koma.Data, Koma> , IKomaFactory
+    public class Factory : PlaceholderFactory<Koma.InitData, Koma> , IKomaFactory
     {
         
     }

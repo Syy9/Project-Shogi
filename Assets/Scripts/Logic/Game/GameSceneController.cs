@@ -12,7 +12,7 @@ public class GameSceneController : MonoBehaviour
         foreach (var komaData in fixedDataManager.KomaDataProvider.Data)
         {
             yield return new WaitForSeconds(1);
-            var initData = new Koma.Data();
+            var initData = new Koma.InitData();
             initData.Type = komaData.KomaType;
             initData.InitPosition = new Vector2Int(0, 0);
             komaFactory.Create(initData);

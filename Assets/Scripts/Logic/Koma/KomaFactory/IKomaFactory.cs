@@ -1,5 +1,5 @@
 ﻿using Zenject;
 
-public interface IKomaFactory : IFactory<Koma.Data,Koma>
+public interface IKomaFactory : IFactory<Koma.InitData,Koma>
 {
 }

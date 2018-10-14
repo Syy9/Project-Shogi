@@ -12,7 +12,7 @@ public class KomaFactory : IKomaFactory
         _uiBoard = uiBoard;
         _komaPrefab = Resources.Load<Koma>("Prefabs/Koma");
     }
-    public Koma Create(Koma.Data param)
+    public Koma Create(Koma.InitData param)
     {
         var parent = _uiBoard.GetKomaParent();
         var koma = _container.InstantiatePrefabForComponent<Koma>(_komaPrefab.gameObject, parent);
