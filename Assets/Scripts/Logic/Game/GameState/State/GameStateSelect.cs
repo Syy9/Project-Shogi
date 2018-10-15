@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using MasterData;
 using StateMachine;
 using UnityEngine;
 
@@ -6,18 +7,19 @@ public class GameStateSelect : GameStateBase
 {
     protected override void OnEnter()
     {
-        Owner.CoroutineService.Start(Hoge());
+        Owner.UIBoardGridManager.OnSelect += OnSelect;
     }
 
-    IEnumerator Hoge()
+    protected override void OnExit()
     {
-        foreach (var komaData in Owner.FixedDataManager.KomaDataProvider.Data)
-        {
-            yield return new WaitForSeconds(1);
-            var initData = new Koma.InitData();
-            initData.Type = komaData.KomaType;
-            initData.InitPosition = new Vector2Int(0, 0);
-            Owner.KomaFactory.Create(initData);
-        }
+        Owner.UIBoardGridManager.OnSelect -= OnSelect;
+    }
+
+    void OnSelect(Vector2Int position)
+    {
+        var initData = new Koma.InitData();
+        initData.Type = KomaType.Type001;
+        initData.InitPosition = position;
+        Owner.KomaFactory.Create(initData);
     }
 }
