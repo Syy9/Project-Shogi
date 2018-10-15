@@ -13,19 +13,6 @@ public class Koma : MonoBehaviour {
     [SerializeField] Image image;
     KomaType Type;
 
-    IEnumerator Start()
-    {
-        Move(0, 0);
-        for (int x = 0; x < 9; x++)
-        {
-            for (int y = 0; y < 9; y++)
-            {
-                yield return new WaitForSeconds(1);
-                Move(x, y);
-            }
-        }
-    }
-
     public void Init(InitData initData)
     {
         Type = initData.Type;
