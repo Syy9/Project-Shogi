@@ -8,6 +8,9 @@ public class GameSceneInstaller : MonoInstaller<GameSceneInstaller>
     [SerializeField] UIBoard UIBoard;
     public override void InstallBindings()
     {
+        //Framework
+        Container.Bind<CoroutineService>().ToSelf().AsSingle();
+
         Container.Bind<IFixedDataManager>().To<FixedDataManager>().AsSingle();
         Container.Bind<UIBoard>().FromInstance(UIBoard);
         Container.Bind<UIBoardGridManager>().FromInstance(GridManager);

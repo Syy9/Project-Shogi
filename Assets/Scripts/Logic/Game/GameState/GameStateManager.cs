@@ -4,6 +4,7 @@ using Zenject;
 
 public class GameStateManager : StateOwner
 {
+    [Inject] public CoroutineService CoroutineService { get; private set; }
     [Inject] public IFixedDataManager FixedDataManager { get; private set; }
     [Inject] public IKomaFactory KomaFactory { get; private set; }
     public override void Start()
