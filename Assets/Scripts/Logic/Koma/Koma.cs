@@ -8,7 +8,7 @@ using Zenject;
 [DisallowMultipleComponent]
 public class Koma : MonoBehaviour {
     [Inject] IFixedDataManager FixedDataManager;
-    [Inject] UIBoardGridManager UIBoardGridManager;
+    [Inject] UIBoard UIBoard;
     [Inject] KomaIconLoader IconLoader;
     [SerializeField] Image image;
     KomaType Type;
@@ -23,7 +23,7 @@ public class Koma : MonoBehaviour {
 
     public void Move(int x, int y)
     {
-        var position = UIBoardGridManager.GetPosition(x, y);
+        var position = UIBoard.GetBoardInput().GetPosition(x, y);
         transform.position = position;
     }
 

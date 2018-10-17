@@ -4,8 +4,8 @@ using Zenject;
 
 public class GameSceneInstaller : MonoInstaller<GameSceneInstaller>
 {
-    [SerializeField] UIBoardGridManager GridManager;
-    [SerializeField] UIBoard UIBoard;
+    [SerializeField] UIBoard UIBoardPrefab;
+    [SerializeField] Transform UIBoardParent;
     public override void InstallBindings()
     {
         //Framework
@@ -15,8 +15,7 @@ public class GameSceneInstaller : MonoInstaller<GameSceneInstaller>
         Container.Bind<IFixedDataManager>().To<FixedDataManager>().AsSingle();
 
         //Game
-        Container.Bind<UIBoard>().FromInstance(UIBoard);
-        Container.Bind<UIBoardGridManager>().FromInstance(GridManager);
+        Container.Bind<UIBoard>().FromComponentInNewPrefab(UIBoardPrefab).UnderTransform(UIBoardParent).AsSingle().NonLazy();
         Container.Bind<KomaIconLoader>().ToSelf().AsSingle();
         Container.BindFactoryCustomInterface<Koma.InitData, Koma, Koma.Factory, IKomaFactory>().FromFactory<KomaFactory>();
 
