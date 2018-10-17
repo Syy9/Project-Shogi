@@ -1,18 +1,31 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIBoard : MonoBehaviour {
+public interface IUIBoard
+{
+    Transform KomaParent { get; }
+    Action<Vector2Int> OnSelect { get; set; }
+    Vector2 GetPosition(int x, int y);
+}
+
+public class UIBoard : MonoBehaviour, IUIBoard {
     [SerializeField] Transform komaParent;
     [SerializeField] UIBoardGridManager boardInput;
 
-    public Transform GetKomaParent()
+    public Transform KomaParent { get { return komaParent; } }
+    public Action<Vector2Int> OnSelect { get; set; }
+
+    void Awake()
     {
-        return komaParent;
+        boardInput.OnSelect += (value) => {
+            OnSelect.Call(value);
+        };
     }
 
-    public UIBoardGridManager GetBoardInput()
+    public Vector2 GetPosition(int x, int y)
     {
-        return boardInput;
+        return boardInput.GetPosition(x, y);
     }
 }

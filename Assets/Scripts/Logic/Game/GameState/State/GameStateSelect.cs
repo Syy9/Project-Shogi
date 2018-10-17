@@ -7,12 +7,12 @@ public class GameStateSelect : GameStateBase
 {
     protected override void OnEnter()
     {
-        Owner.UIBoard.GetBoardInput().OnSelect += OnSelect;
+        Owner.UIBoard.OnSelect += OnSelect;
     }
 
     protected override void OnExit()
     {
-        Owner.UIBoard.GetBoardInput().OnSelect -= OnSelect;
+        Owner.UIBoard.OnSelect -= OnSelect;
     }
 
     void OnSelect(Vector2Int position)
