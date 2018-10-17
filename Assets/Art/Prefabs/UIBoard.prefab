@@ -5997,6 +5997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   komaParent: {fileID: 224713957677993450}
+  boardInput: {fileID: 114792598076644866}
 --- !u!114 &114841087965769614
 MonoBehaviour:
   m_ObjectHideFlags: 1
