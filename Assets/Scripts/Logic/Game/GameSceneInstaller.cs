@@ -11,7 +11,10 @@ public class GameSceneInstaller : MonoInstaller<GameSceneInstaller>
         //Framework
         Container.Bind<CoroutineService>().ToSelf().AsSingle();
 
+        //System
         Container.Bind<IFixedDataManager>().To<FixedDataManager>().AsSingle();
+
+        //Game
         Container.Bind<UIBoard>().FromInstance(UIBoard);
         Container.Bind<UIBoardGridManager>().FromInstance(GridManager);
         Container.Bind<KomaIconLoader>().ToSelf().AsSingle();
