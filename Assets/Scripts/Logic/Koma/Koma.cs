@@ -11,26 +11,32 @@ public class Koma : MonoBehaviour {
     [Inject] IUIBoard UIBoard;
     [Inject] KomaIconLoader IconLoader;
     [SerializeField] Image image;
-    KomaType Type;
+    public KomaData Data;
+    public KomaType Type { get; private set; }
+    public Vector2Int Position { get; private set; }
+    public int Lv { get ; private set; }
 
     public void Init(InitData initData)
     {
         Type = initData.Type;
-        var komaData = FixedDataManager.KomaDataProvider.Find(initData.Type);
-        image.sprite = IconLoader.Load(komaData.IconAssetName);
-        Move(initData.InitPosition.x, initData.InitPosition.y);
+        Lv = initData.Lv;
+        Data = FixedDataManager.KomaDataProvider.Find(Type, Lv);
+        image.sprite = IconLoader.Load(Data.IconAssetName);
+        Move(initData.InitPosition);
     }
 
-    public void Move(int x, int y)
+    public void Move(Vector2Int position)
     {
-        var position = UIBoard.GetPosition(x, y);
-        transform.position = position;
+        var worldPosition = UIBoard.GetPosition(position);
+        transform.position = worldPosition;
+        Position = position;
     }
 
     public class InitData
     {
         public KomaType Type;
         public Vector2Int InitPosition;
+        public int Lv = 1;
     }
 
     public class Factory : PlaceholderFactory<Koma.InitData, Koma> , IKomaFactory

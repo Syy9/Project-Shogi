@@ -7,7 +7,7 @@ public interface IUIBoard
 {
     Transform KomaParent { get; }
     Action<Vector2Int> OnSelect { get; set; }
-    Vector2 GetPosition(int x, int y);
+    Vector2 GetPosition(Vector2Int position);
 }
 
 public class UIBoard : MonoBehaviour, IUIBoard {
@@ -24,8 +24,8 @@ public class UIBoard : MonoBehaviour, IUIBoard {
         };
     }
 
-    public Vector2 GetPosition(int x, int y)
+    public Vector2 GetPosition(Vector2Int position)
     {
-        return boardInput.GetPosition(x, y);
+        return boardInput.GetPosition(position);
     }
 }

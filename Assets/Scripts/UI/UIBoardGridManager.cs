@@ -22,9 +22,9 @@ public class UIBoardGridManager : MonoBehaviour {
             });
         }
     }
-    public Vector2 GetPosition(int x, int y)
+    public Vector2 GetPosition(Vector2Int position)
     {
-        int index = y * COLUMN_COUNT + x;
+        int index = position.y * COLUMN_COUNT + position.x;
         var grid = transform.GetChild(index);
         return grid.transform.position;
     }
