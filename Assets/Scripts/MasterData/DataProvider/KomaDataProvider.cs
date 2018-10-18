@@ -6,7 +6,8 @@ namespace MasterData
     public interface IKomaDataProvider
     {
         IEnumerable<KomaData> Data { get; }
-        KomaData Find(KomaType type);
+        KomaData Find(KomaType type, int lv = 1);
+        int GetMaxLv(KomaType type);
     }
     public class KomaDataProvider : IDataCreater<KomaData> , IKomaDataProvider
     {
@@ -45,9 +46,14 @@ namespace MasterData
             return data;
         }
 
-        public KomaData Find(KomaType type)
+        public KomaData Find(KomaType type, int lv = 1)
         {
-            return Data.First(data => data.KomaType == type);
+            return Data.First(data => data.KomaType == type && data.Lv == lv);
+        }
+
+        public int GetMaxLv(KomaType type)
+        {
+            return Data.Count(data => data.KomaType == type);
         }
     }
 }
