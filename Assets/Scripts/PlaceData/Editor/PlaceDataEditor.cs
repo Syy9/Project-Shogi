@@ -27,6 +27,7 @@ public class PlaceDataEditor : EditorWindow {
     PlaceData edit;
     PlaceDataEditController controller;
     List<Koma> komaList = new List<Koma>();
+    KomaType komaType;
 
     void OnGUI()
     {
@@ -66,6 +67,8 @@ public class PlaceDataEditor : EditorWindow {
                 }
             }
         }
+
+        komaType = (KomaType) EditorGUILayout.EnumPopup("駒タイプ", komaType);
 
         if(GUILayout.Button("セーブする"))
         {
@@ -127,7 +130,7 @@ public class PlaceDataEditor : EditorWindow {
         var initData = new Koma.InitData();
         if(koma == null)
         {
-            initData.Type = KomaType.Type008;
+            initData.Type = komaType;
             initData.Lv = 1;
             initData.InitPosition = position;
             var newKoma = controller.KomaFactory.Create(initData);
