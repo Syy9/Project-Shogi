@@ -5,7 +5,7 @@ using MasterData;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-
+using System;
 
 public class PlaceDataEditor : EditorWindow {
     [MenuItem("将棋/PlaceDataEditor")]
@@ -28,6 +28,7 @@ public class PlaceDataEditor : EditorWindow {
     PlaceDataEditController controller;
     List<Koma> komaList = new List<Koma>();
     KomaType komaType;
+    int selectKomaTypeIndex;
 
     void OnGUI()
     {
@@ -64,11 +65,15 @@ public class PlaceDataEditor : EditorWindow {
                 if(edit != null)
                 {
                     Place(edit);
+                } else {
+                    return;
                 }
             }
         }
 
         komaType = (KomaType) EditorGUILayout.EnumPopup("駒タイプ", komaType);
+        string[] komaTypeNames = Enum.GetValues(typeof(KomaType)).Cast<KomaType>().Select(type => controller.FixedDataManager.KomaDataProvider.Find(type).Name).ToArray();
+        selectKomaTypeIndex = EditorGUILayout.IntPopup("駒タイプ", selectKomaTypeIndex, komaTypeNames, new int[] {});
 
         if(GUILayout.Button("セーブする"))
         {
