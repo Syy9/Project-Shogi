@@ -3,6 +3,7 @@
     public class KomaData
     {
         public KomaType KomaType;
+        public string Name;
         public int Lv;
         public string IconAssetName;
     }
