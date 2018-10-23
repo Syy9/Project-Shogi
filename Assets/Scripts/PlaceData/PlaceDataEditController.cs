@@ -12,5 +12,7 @@ namespace PlaceData.Edit
         [Inject] public IKomaFactory KomaFactory { get; private set; }
         [Inject] public IUIBoard UIBoard { get; private set; }
 
+        public RectTransform Player1Slot;
+        public RectTransform Player2Slot;
     }
 }
