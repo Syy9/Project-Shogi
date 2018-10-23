@@ -45,6 +45,14 @@ namespace StateMachine
             UnityEngine.Debug.Log($"Change State {typeof(T)}");
             _current.Enter();
         }
+
+        public void Update()
+        {
+            if(_current != null)
+            {
+                _current.Update();
+            }
+        }
     }
 
     public abstract class State
@@ -59,11 +67,17 @@ namespace StateMachine
             OnEnter();
         }
 
+        public void Update()
+        {
+            OnUpdate();
+        }
+
         public void Exit()
         {
             OnExit();
         }
         protected virtual void OnEnter() { }
+        protected virtual void OnUpdate() { }
         protected virtual void OnExit() { }
     }
 
