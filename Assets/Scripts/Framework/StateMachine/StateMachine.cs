@@ -21,6 +21,8 @@ namespace StateMachine
             state.SetOwner(this);
             _states.Add(state.GetType(), state);
         }
+
+        [Obsolete("Use ChangeState<T>")]
         public void ChangeState(Type stateType)
         {
             if(_current != null)
@@ -29,6 +31,18 @@ namespace StateMachine
             }
 
             _current = _states[stateType];
+            _current.Enter();
+        }
+
+        public void ChangeState<T>() where T : State, new()
+        {
+            if (_current != null)
+            {
+                _current.Exit();
+            }
+
+            _current = _states[typeof(T)];
+            UnityEngine.Debug.Log($"Change State {typeof(T)}");
             _current.Enter();
         }
     }
