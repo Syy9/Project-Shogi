@@ -21,6 +21,7 @@ namespace PlaceData.Edit
             {
                 Owner.Context.Controller.UIBoard.OnSelect = OnSelect;
             }
+            Owner.Repaint();
         }
 
         protected override void OnUpdate()

@@ -14,6 +14,7 @@ namespace PlaceData.Edit
         const string EditrScenePath = "Assets/Scripts/PlaceData/Editor/PlaceDataEditScene.unity";
         const string EditSceneName = "PlaceDataEditScene";
         public EditContext Context = new EditContext();
+        public Action RequireRepaint { private get; set; }
 
         protected override void SetupState()
         {
@@ -37,7 +38,10 @@ namespace PlaceData.Edit
             Update();
         }
 
-
+        public void Repaint()
+        {
+            RequireRepaint.Call();
+        }
 
         public static void OpenEditSceneIfNeed()
         {

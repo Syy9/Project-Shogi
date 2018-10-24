@@ -18,6 +18,9 @@ namespace PlaceData.Edit
 
         void OnEnable()
         {
+            editor.RequireRepaint = () => {
+                Repaint();
+            };
             editor.DispachInitState();
         }
 

@@ -9,6 +9,7 @@ namespace PlaceData.Edit
     {
         protected override void OnEnter()
         {
+            Owner.Repaint();
         }
 
         protected override void OnUpdate()
