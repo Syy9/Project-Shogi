@@ -18,7 +18,7 @@ namespace PlaceData.Edit
 
         void OnEnable()
         {
-            editor.Start();
+            editor.DispachInitState();
         }
 
         void OnGUI()

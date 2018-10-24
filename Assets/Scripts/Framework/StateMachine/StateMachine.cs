@@ -14,7 +14,7 @@ namespace StateMachine
         }
 
         protected abstract void SetupState();
-        public abstract void Start(); //TODO Rename to DispachInitState
+        public abstract void DispachInitState();
         protected void Register<T>() where T : State , new()
         {
             var state = new T();

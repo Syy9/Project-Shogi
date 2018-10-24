@@ -22,7 +22,7 @@ namespace PlaceData.Edit
             Register<EditState>();
         }
 
-        public override void Start()
+        public override void DispachInitState()
         {
             ChangeState<InitState>();
         }

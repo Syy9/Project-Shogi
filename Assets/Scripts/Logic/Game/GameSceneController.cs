@@ -9,6 +9,6 @@ public class GameSceneController : MonoBehaviour
     [Inject] GameStateManager gameStateManager;
 	void Start ()
     {
-        gameStateManager.Start();
+        gameStateManager.DispachInitState();
 	}
 }

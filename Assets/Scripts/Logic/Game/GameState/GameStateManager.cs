@@ -8,7 +8,7 @@ public class GameStateManager : StateOwner
     [Inject] public IFixedDataManager FixedDataManager { get; private set; }
     [Inject] public IKomaFactory KomaFactory { get; private set; }
     [Inject] public IUIBoard UIBoard { get; private set; }
-    public override void Start()
+    public override void DispachInitState()
     {
         ChangeState(typeof(GameStateSelect));
     }
