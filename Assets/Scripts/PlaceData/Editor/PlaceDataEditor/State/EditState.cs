@@ -47,9 +47,11 @@ namespace PlaceData.Edit
                 Save(komaList, Owner.Context.Edit);
             }
 
-            komaType = (KomaType) EditorGUILayout.EnumPopup("駒タイプ", komaType);
-            string[] komaTypeNames = Enum.GetValues(typeof(KomaType)).Cast<KomaType>().Select(type => Owner.Context.Controller.FixedDataManager.KomaDataProvider.Find(type).Name).ToArray();
-            selectKomaTypeIndex = EditorGUILayout.IntPopup("駒タイプ", selectKomaTypeIndex, komaTypeNames, new int[] {});
+            var komaTypeArray = Enum.GetValues(typeof(KomaType));
+            var komaTypeNames = komaTypeArray.Cast<KomaType>().Select(type => Owner.Context.Controller.FixedDataManager.KomaDataProvider.Find(type).Name).ToArray();
+            var komaTypeIntArray = komaTypeArray.Cast<int>().ToArray();
+            selectKomaTypeIndex = EditorGUILayout.IntPopup("駒タイプ", selectKomaTypeIndex, komaTypeNames, komaTypeIntArray);
+            komaType = (KomaType) selectKomaTypeIndex;
         }
 
         void OnSelect(Vector2Int position)
