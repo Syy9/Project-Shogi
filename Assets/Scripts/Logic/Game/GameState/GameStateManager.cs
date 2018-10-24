@@ -10,7 +10,7 @@ public class GameStateManager : StateOwner
     [Inject] public IUIBoard UIBoard { get; private set; }
     public override void DispachInitState()
     {
-        ChangeState(typeof(GameStateSelect));
+        ChangeState<GameStateSelect>();
     }
 
     protected override void SetupState()
