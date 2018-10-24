@@ -57,6 +57,9 @@ namespace PlaceData.Edit
 
         void OnSelect(Vector2Int position)
         {
+            if(komaType == KomaType.None)
+                return;
+
             var koma = komaList.FirstOrDefault(k => k.Position == position);
             var initData = new Koma.InitData();
             if(koma == null)
