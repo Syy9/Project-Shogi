@@ -49,7 +49,7 @@ namespace PlaceData.Edit
             }
             if(GUILayout.Button("保存"))
             {
-                Save(komaList, Owner.Context.Edit);
+                Save(Owner.Context.Edit, komaList);
             }
 
             var komaTypeNames = Enum.GetValues(typeof(KomaType)).Cast<KomaType>().Select(type => Owner.Context.Controller.FixedDataManager.KomaDataProvider.Find(type).Name).ToArray();
@@ -111,19 +111,10 @@ namespace PlaceData.Edit
             }
         }
 
-        void Save(List<Koma> komaList, PlaceData data)
+        void Save(PlaceData data, List<Koma> komaList)
         {
             Undo.RegisterCompleteObjectUndo(data, "PlaceData - Save");
-            data.placeList.Clear();
-            foreach (var koma in komaList)
-            {
-                var place = new Place();
-                place.KomaType = koma.Type;
-                place.Lv = koma.Lv;
-                place.Position = koma.Position;
-                place.PlayerType = koma.PlayerType;
-                data.placeList.Add(place);
-            }
+            data.OverwiteSave(komaList);
         }
 
         void SetupSlot(PlayerType playerType)

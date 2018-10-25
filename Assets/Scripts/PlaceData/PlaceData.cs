@@ -11,6 +11,23 @@ namespace PlaceData.Edit
         public List<Place> placeList = new List<Place>();
     }
 
+    public static class PlaceDataExtension
+    {
+        public static void OverwiteSave(this PlaceData self, List<Koma> komaList)
+        {
+            self.placeList.Clear();
+            foreach (var koma in komaList)
+            {
+                var place = new Place();
+                place.KomaType = koma.Type;
+                place.Lv = koma.Lv;
+                place.Position = koma.Position;
+                place.PlayerType = koma.PlayerType;
+                self.placeList.Add(place);
+            }
+        }
+    }
+
     [Serializable]
     public class Place
     {
