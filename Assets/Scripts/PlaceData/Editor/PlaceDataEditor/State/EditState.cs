@@ -67,7 +67,7 @@ namespace PlaceData.Edit
 
         void OnSelect(Vector2Int position)
         {
-            if(komaType == KomaType.None)
+            if(komaType == KomaType.None || playerType == PlayerType.None)
                 return;
 
             var koma = komaList.FirstOrDefault(k => k.Position == position);
@@ -77,6 +77,7 @@ namespace PlaceData.Edit
                 initData.Type = komaType;
                 initData.Lv = 1;
                 initData.InitPosition = position;
+                initData.PlayerType = playerType;
                 var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
                 komaList.Add(newKoma);
             } else {
@@ -88,6 +89,7 @@ namespace PlaceData.Edit
                     initData.Type = koma.Type;
                     initData.Lv = koma.Lv + 1;
                     initData.InitPosition = koma.Position;
+                    initData.PlayerType = koma.PlayerType;
                     koma.Init(initData);
                 }
             }
@@ -110,6 +112,7 @@ namespace PlaceData.Edit
                 initData.Type = place.KomaType;
                 initData.Lv = place.Lv;
                 initData.InitPosition = place.Position;
+                initData.PlayerType = place.PlayerType;
                 var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
                 komaList.Add(newKoma);
             }
@@ -125,6 +128,7 @@ namespace PlaceData.Edit
                 place.KomaType = koma.Type;
                 place.Lv = koma.Lv;
                 place.Position = koma.Position;
+                place.PlayerType = koma.PlayerType;
                 data.placeList.Add(place);
             }
         }
