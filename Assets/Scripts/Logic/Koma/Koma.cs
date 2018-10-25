@@ -21,6 +21,7 @@ public class Koma : MonoBehaviour {
     {
         Type = initData.Type;
         Lv = initData.Lv;
+        PlayerType = initData.PlayerType;
         Data = FixedDataManager.KomaDataProvider.Find(Type, Lv);
         image.sprite = IconLoader.Load(Data.IconAssetName);
         Move(initData.InitPosition);
