@@ -13,9 +13,7 @@ namespace PlaceData.Edit
     {
         List<Koma> komaList = new List<Koma>();
         KomaType komaType;
-        int selectKomaTypeIndex;
         PlayerType playerType;
-        int selectPlayerTypeIndex;
         protected override void OnEnter()
         {
             Owner.Context.Controller = GameObject.FindObjectOfType<PlaceDataEditController>();
@@ -52,17 +50,10 @@ namespace PlaceData.Edit
                 Save(komaList, Owner.Context.Edit);
             }
 
-            var komaTypeArray = Enum.GetValues(typeof(KomaType));
-            var komaTypeNames = komaTypeArray.Cast<KomaType>().Select(type => Owner.Context.Controller.FixedDataManager.KomaDataProvider.Find(type).Name).ToArray();
-            var komaTypeIntArray = komaTypeArray.Cast<int>().ToArray();
-            selectKomaTypeIndex = EditorGUILayout.IntPopup("駒タイプ", selectKomaTypeIndex, komaTypeNames, komaTypeIntArray);
-            komaType = (KomaType) selectKomaTypeIndex;
+            var komaTypeNames = Enum.GetValues(typeof(KomaType)).Cast<KomaType>().Select(type => Owner.Context.Controller.FixedDataManager.KomaDataProvider.Find(type).Name).ToArray();
+            komaType = (KomaType) EditorGUILayout.Popup("駒Type", (int) komaType, komaTypeNames);
 
-            var playerTypeArray = Enum.GetValues(typeof(PlayerType));
-            var playerTypeNames = komaTypeArray.Cast<PlayerType>().Select(type => type.ToString()).ToArray();
-            var playerTypeIntArray = komaTypeArray.Cast<int>().ToArray();
-            selectPlayerTypeIndex = EditorGUILayout.IntPopup("プレイヤータイプ", selectPlayerTypeIndex, playerTypeNames, playerTypeIntArray);
-            playerType = (PlayerType) selectPlayerTypeIndex;
+            playerType = (PlayerType)EditorGUILayout.EnumPopup("プレイヤータイプ", playerType);
         }
 
         void OnSelect(Vector2Int position)
