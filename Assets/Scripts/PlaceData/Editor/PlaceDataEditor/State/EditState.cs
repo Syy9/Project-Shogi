@@ -17,10 +17,12 @@ namespace PlaceData.Edit
         protected override void OnEnter()
         {
             Owner.Context.Controller = GameObject.FindObjectOfType<PlaceDataEditController>();
-            if(Owner.Context.Controller != null)
+            if(Owner.Context.Controller == null)
             {
-                Owner.Context.Controller.UIBoard.OnSelect = OnSelect;
+                throw new Exception("Cannot find PlaceDataEditController");
             }
+
+            Owner.Context.Controller.UIBoard.OnSelect = OnSelect;
             SetupSlot(PlayerType.Player1);
             SetupSlot(PlayerType.Player2);
             Owner.Repaint();
