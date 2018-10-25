@@ -14,6 +14,8 @@ namespace PlaceData.Edit
         List<Koma> komaList = new List<Koma>();
         KomaType komaType;
         int selectKomaTypeIndex;
+        PlayerType playerType;
+        int selectPlayerTypeIndex;
         protected override void OnEnter()
         {
             Owner.Context.Controller = GameObject.FindObjectOfType<PlaceDataEditController>();
@@ -55,6 +57,12 @@ namespace PlaceData.Edit
             var komaTypeIntArray = komaTypeArray.Cast<int>().ToArray();
             selectKomaTypeIndex = EditorGUILayout.IntPopup("駒タイプ", selectKomaTypeIndex, komaTypeNames, komaTypeIntArray);
             komaType = (KomaType) selectKomaTypeIndex;
+
+            var playerTypeArray = Enum.GetValues(typeof(PlayerType));
+            var playerTypeNames = komaTypeArray.Cast<PlayerType>().Select(type => type.ToString()).ToArray();
+            var playerTypeIntArray = komaTypeArray.Cast<int>().ToArray();
+            selectPlayerTypeIndex = EditorGUILayout.IntPopup("プレイヤータイプ", selectPlayerTypeIndex, playerTypeNames, playerTypeIntArray);
+            playerType = (PlayerType) selectPlayerTypeIndex;
         }
 
         void OnSelect(Vector2Int position)
@@ -137,6 +145,7 @@ namespace PlaceData.Edit
                 var initData = new Koma.InitData();
                 initData.Type = komaType;
                 initData.Lv = 1;
+                initData.PlayerType = playerType;
                 var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
                 newKoma.transform.SetParent(slot);
             }
