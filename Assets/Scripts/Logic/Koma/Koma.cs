@@ -14,6 +14,7 @@ public class Koma : MonoBehaviour {
     public KomaData Data;
     public KomaType Type { get; private set; }
     public Vector2Int Position { get; private set; }
+    public PlayerType PlayerType { get; private set; }
     public int Lv { get ; private set; }
 
     public void Init(InitData initData)
@@ -37,6 +38,7 @@ public class Koma : MonoBehaviour {
         public KomaType Type;
         public Vector2Int InitPosition;
         public int Lv = 1;
+        public PlayerType PlayerType;
     }
 
     public class Factory : PlaceholderFactory<Koma.InitData, Koma> , IKomaFactory
