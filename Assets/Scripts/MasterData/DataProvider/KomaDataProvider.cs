@@ -21,28 +21,28 @@ namespace MasterData
         public IEnumerable<KomaData> Create()
         {
             var data = new List<KomaData>();
-            data.Add(new KomaData() { KomaType = KomaType.None, Name = "なし", Lv = 1, IconAssetName = "none" }); //なし
-            data.Add(new KomaData() { KomaType = KomaType.Type001, Name = "王", Lv = 1, IconAssetName = "sgl01" }); //王
+            data.Add(new KomaData() { KomaType = KomaType.None, Name = "なし", Lv = 1, IconAssetName1 = "none", IconAssetName2 = "none" }); //なし
+            data.Add(new KomaData() { KomaType = KomaType.Type001, Name = "王", Lv = 1, IconAssetName1 = "sgl01", IconAssetName2 = "sgl31" }); //王
 
-            data.Add(new KomaData() { KomaType = KomaType.Type002, Name = "飛車", Lv = 1, IconAssetName = "sgl02" }); //飛車
-            data.Add(new KomaData() { KomaType = KomaType.Type002, Name = "飛車成", Lv = 2, IconAssetName = "sgl22" }); //飛車成
+            data.Add(new KomaData() { KomaType = KomaType.Type002, Name = "飛車", Lv = 1, IconAssetName1 = "sgl02", IconAssetName2 = "sgl32" }); //飛車
+            data.Add(new KomaData() { KomaType = KomaType.Type002, Name = "飛車成", Lv = 2, IconAssetName1 = "sgl22", IconAssetName2 = "sgl52" }); //飛車成
 
-            data.Add(new KomaData() { KomaType = KomaType.Type003, Name = "角", Lv = 1, IconAssetName = "sgl03" }); //角
-            data.Add(new KomaData() { KomaType = KomaType.Type003, Name = "角成", Lv = 2, IconAssetName = "sgl23" }); //角成
+            data.Add(new KomaData() { KomaType = KomaType.Type003, Name = "角", Lv = 1, IconAssetName1 = "sgl03", IconAssetName2 = "sgl33" }); //角
+            data.Add(new KomaData() { KomaType = KomaType.Type003, Name = "角成", Lv = 2, IconAssetName1 = "sgl23", IconAssetName2 = "sgl53" }); //角成
 
-            data.Add(new KomaData() { KomaType = KomaType.Type004, Name = "金", Lv = 1, IconAssetName = "sgl04" }); //金
+            data.Add(new KomaData() { KomaType = KomaType.Type004, Name = "金", Lv = 1, IconAssetName1 = "sgl04", IconAssetName2 = "sgl34" }); //金
 
-            data.Add(new KomaData() { KomaType = KomaType.Type005, Name = "銀", Lv = 1, IconAssetName = "sgl05" }); //銀
-            data.Add(new KomaData() { KomaType = KomaType.Type005, Name = "銀成", Lv = 2, IconAssetName = "sgl25" }); //銀成
+            data.Add(new KomaData() { KomaType = KomaType.Type005, Name = "銀", Lv = 1, IconAssetName1 = "sgl05", IconAssetName2 = "sgl35" }); //銀
+            data.Add(new KomaData() { KomaType = KomaType.Type005, Name = "銀成", Lv = 2, IconAssetName1 = "sgl25", IconAssetName2 = "sgl55" }); //銀成
 
-            data.Add(new KomaData() { KomaType = KomaType.Type006, Name = "桂馬", Lv = 1, IconAssetName = "sgl06" }); //桂馬
-            data.Add(new KomaData() { KomaType = KomaType.Type006, Name = "桂馬成", Lv = 2, IconAssetName = "sgl26" }); //桂馬成
+            data.Add(new KomaData() { KomaType = KomaType.Type006, Name = "桂馬", Lv = 1, IconAssetName1 = "sgl06", IconAssetName2 = "sgl36" }); //桂馬
+            data.Add(new KomaData() { KomaType = KomaType.Type006, Name = "桂馬成", Lv = 2, IconAssetName1 = "sgl26", IconAssetName2 = "sgl56" }); //桂馬成
 
-            data.Add(new KomaData() { KomaType = KomaType.Type007, Name = "香車", Lv = 1, IconAssetName = "sgl07" }); //香車
-            data.Add(new KomaData() { KomaType = KomaType.Type007, Name = "香車成", Lv = 2, IconAssetName = "sgl27" }); //香車成
+            data.Add(new KomaData() { KomaType = KomaType.Type007, Name = "香車", Lv = 1, IconAssetName1 = "sgl07", IconAssetName2 = "sgl37" }); //香車
+            data.Add(new KomaData() { KomaType = KomaType.Type007, Name = "香車成", Lv = 2, IconAssetName1 = "sgl27", IconAssetName2 = "sgl57" }); //香車成
 
-            data.Add(new KomaData() { KomaType = KomaType.Type008, Name = "歩兵", Lv = 1, IconAssetName = "sgl08" }); //歩兵
-            data.Add(new KomaData() { KomaType = KomaType.Type008, Name = "歩兵成", Lv = 2, IconAssetName = "sgl28" }); //歩兵成
+            data.Add(new KomaData() { KomaType = KomaType.Type008, Name = "歩兵", Lv = 1, IconAssetName1 = "sgl08", IconAssetName2 = "sgl38" }); //歩兵
+            data.Add(new KomaData() { KomaType = KomaType.Type008, Name = "歩兵成", Lv = 2, IconAssetName1 = "sgl28", IconAssetName2 = "sgl58" }); //歩兵成
 
             return data;
         }
