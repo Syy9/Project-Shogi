@@ -133,9 +133,9 @@ namespace PlaceData.Edit
             }
         }
 
-        void SetupSlot(PlayerType type)
+        void SetupSlot(PlayerType playerType)
         {
-            var slot = Owner.Context.Controller.GetSlot(type);
+            var slot = Owner.Context.Controller.GetSlot(playerType);
             while(slot.childCount >= 1)
             {
                 GameObject.Destroy(slot.GetChild(0).gameObject);
