@@ -21,6 +21,8 @@ namespace PlaceData.Edit
             {
                 Owner.Context.Controller.UIBoard.OnSelect = OnSelect;
             }
+            SetupSlot(PlayerType.Player1);
+            SetupSlot(PlayerType.Player2);
             Owner.Repaint();
         }
 
@@ -116,6 +118,27 @@ namespace PlaceData.Edit
                 place.Lv = koma.Lv;
                 place.Position = koma.Position;
                 data.placeList.Add(place);
+            }
+        }
+
+        void SetupSlot(PlayerType type)
+        {
+            var slot = Owner.Context.Controller.GetSlot(type);
+            while(slot.childCount >= 1)
+            {
+                GameObject.Destroy(slot.GetChild(0).gameObject);
+            }
+
+            var komaTypeArray = Enum.GetValues(typeof(KomaType)).Cast<KomaType>();
+            foreach (var komaType in komaTypeArray)
+            {
+                if(komaType == KomaType.None)
+                    continue;
+                var initData = new Koma.InitData();
+                initData.Type = komaType;
+                initData.Lv = 1;
+                var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
+                newKoma.transform.SetParent(slot);
             }
         }
     }
