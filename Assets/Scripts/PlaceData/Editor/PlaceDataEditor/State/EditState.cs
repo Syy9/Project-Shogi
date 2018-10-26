@@ -119,8 +119,8 @@ namespace PlaceData.Edit
 
         void SetupSlot(PlayerType playerType)
         {
-            var slot = Owner.Context.Controller.GetSlot(playerType);
-            slot.RemoveAll();
+            var slotController = Owner.Context.Controller.GetSlotController(playerType);
+            slotController.RemoveAll();
 
             var komaTypeArray = Enum.GetValues(typeof(KomaType)).Cast<KomaType>();
             foreach (var komaType in komaTypeArray)
@@ -132,7 +132,7 @@ namespace PlaceData.Edit
                 initData.Lv = 1;
                 initData.PlayerType = playerType;
                 var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
-                slot.Add(newKoma);
+                slotController.Add(newKoma);
             }
         }
     }
