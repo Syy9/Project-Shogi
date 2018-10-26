@@ -13,7 +13,7 @@ namespace PlaceData.Edit
         public void Add(Koma koma)
         {
             var obj = new GameObject();
-            obj.transform.SetParent(transform);
+            obj.transform.SetParent(transform, false);
             var slot = obj.AddComponent<Slot>();
             slot.OnSelect = OnSelectEvent;
             slot.Add(koma);
@@ -62,7 +62,8 @@ namespace PlaceData.Edit
         public void Add(Koma koma)
         {
             Koma = koma;
-            koma.transform.SetParent(transform);
+            koma.transform.SetParent(transform, false);
+            koma.transform.position = transform.position;
         }
     }
 }
