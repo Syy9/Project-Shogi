@@ -13,9 +13,9 @@ namespace PlaceData.Edit
         [Inject] public IKomaFactory KomaFactory { get; private set; }
         [Inject] public IUIBoard UIBoard { get; private set; }
 
-        [SerializeField] RectTransform Player1Slot;
-        [SerializeField] RectTransform Player2Slot;
-        public RectTransform GetSlot(PlayerType type)
+        [SerializeField] PlaceDataEditSlotController Player1Slot;
+        [SerializeField] PlaceDataEditSlotController Player2Slot;
+        public PlaceDataEditSlotController GetSlot(PlayerType type)
         {
             switch (type)
             {
