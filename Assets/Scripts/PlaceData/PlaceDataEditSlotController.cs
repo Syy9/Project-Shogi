@@ -17,6 +17,7 @@ namespace PlaceData.Edit
             var slot = obj.AddComponent<Slot>();
             slot.OnSelect = OnSelectEvent;
             slot.Add(koma);
+            _slotList.Add(slot);
         }
 
         public void RemoveAll()
@@ -42,6 +43,10 @@ namespace PlaceData.Edit
         void OnSelectEvent(Koma koma)
         {
             OnSelect.Call(koma);
+            foreach (var slot in _slotList)
+            {
+                slot.SetSelect(koma);
+            }
         }
     }
 
@@ -50,9 +55,10 @@ namespace PlaceData.Edit
         public Koma Koma { get; private set; }
         public Action<Koma> OnSelect { private get; set; }
 
+        Image image;
         void Awake()
         {
-            gameObject.AddComponent<Image>();
+            image = gameObject.AddComponent<Image>();
             var button = gameObject.AddComponent<Button>();
             button.onClick.AddListener(() => {
                 OnSelect.Call(Koma);
@@ -64,6 +70,11 @@ namespace PlaceData.Edit
             Koma = koma;
             koma.transform.SetParent(transform, false);
             koma.transform.position = transform.position;
+        }
+
+        public void SetSelect(Koma selectKoma)
+        {
+            image.color = (selectKoma == Koma) ? Color.gray : Color.white;
         }
     }
 }
