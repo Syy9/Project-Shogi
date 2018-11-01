@@ -51,11 +51,6 @@ namespace PlaceData.Edit
             {
                 Save(Owner.Context.Edit, komaList);
             }
-
-            var komaTypeNames = Enum.GetValues(typeof(KomaType)).Cast<KomaType>().Select(type => Owner.Context.Controller.FixedDataManager.KomaDataProvider.Find(type).Name).ToArray();
-            komaType = (KomaType) EditorGUILayout.Popup("駒Type", (int) komaType, komaTypeNames);
-
-            playerType = (PlayerType)EditorGUILayout.EnumPopup("プレイヤータイプ", playerType);
         }
 
         void OnSelect(Vector2Int position)
@@ -134,6 +129,13 @@ namespace PlaceData.Edit
                 var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
                 slotController.Add(newKoma);
             }
+
+            slotController.OnSelect = (koma) => {
+                var otherSlotContrller = Owner.Context.Controller.GetOtherSlotController(playerType);
+                otherSlotContrller.ResetSelect();
+                this.komaType = koma.Type;
+                this.playerType = koma.PlayerType;
+            };
         }
     }
 }
