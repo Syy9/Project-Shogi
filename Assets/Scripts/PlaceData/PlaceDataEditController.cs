@@ -27,5 +27,18 @@ namespace PlaceData.Edit
                     throw new Exception($"Cannot find slot. type={type}");
             }
         }
+
+        public PlaceDataEditSlotController GetOtherSlotController(PlayerType type)
+        {
+            switch (type)
+            {
+                case PlayerType.Player1:
+                    return Player2Slot;
+                case PlayerType.Player2:
+                    return Player1Slot;
+                default:
+                    throw new Exception($"Cannot find slot. type={type}");
+            }
+        }
     }
 }
