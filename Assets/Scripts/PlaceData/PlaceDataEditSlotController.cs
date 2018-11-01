@@ -48,6 +48,14 @@ namespace PlaceData.Edit
                 slot.SetSelect(koma);
             }
         }
+
+        public void ResetSelect()
+        {
+            foreach (var slot in _slotList)
+            {
+                slot.SetSelect(null);
+            }
+        }
     }
 
     public class Slot : MonoBehaviour
