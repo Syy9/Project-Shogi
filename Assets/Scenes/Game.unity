@@ -416,6 +416,7 @@ MonoBehaviour:
   UIBoardPrefab: {fileID: 114839740392055244, guid: d5b7c8d1aa3594fe6897998e1d80ad14,
     type: 2}
   UIBoardParent: {fileID: 1020198515}
+  PlaceData: {fileID: 11400000, guid: 4c857039c523547e7a7019a2e1175b88, type: 2}
 --- !u!114 &2096906490
 MonoBehaviour:
   m_ObjectHideFlags: 0
