@@ -41,6 +41,16 @@ public class Koma : MonoBehaviour {
         public Vector2Int InitPosition;
         public int Lv = 1;
         public PlayerType PlayerType;
+
+        public InitData(PlaceData.Edit.Place place)
+        {
+            Type = place.KomaType;
+            InitPosition = place.Position;
+            Lv = place.Lv;
+            PlayerType = place.PlayerType;
+        }
+
+        public InitData() { }
     }
 
     public class Factory : PlaceholderFactory<Koma.InitData, Koma> , IKomaFactory
