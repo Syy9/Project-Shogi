@@ -25,6 +25,6 @@ public class GameSceneInstaller : MonoInstaller<GameSceneInstaller>
         Container.Bind<GameStateManager>().ToSelf().AsSingle();
 
         //PlaceData
-        Container.Bind<PlaceData.Edit.PlaceData>().ToSelf().AsSingle();
+        Container.Bind<PlaceData.Edit.PlaceData>().FromInstance(PlaceData).AsSingle();
     }
 }
