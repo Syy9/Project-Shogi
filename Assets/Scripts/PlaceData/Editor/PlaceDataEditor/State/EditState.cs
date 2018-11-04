@@ -87,7 +87,7 @@ namespace PlaceData.Edit
         {
             foreach (var koma in komaList)
             {
-                GameObject.Destroy(koma);
+                GameObject.Destroy(koma.gameObject);
             }
             komaList.Clear();
         }
