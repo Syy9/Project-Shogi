@@ -110,6 +110,8 @@ namespace PlaceData.Edit
         {
             Undo.RegisterCompleteObjectUndo(data, "PlaceData - Save");
             data.OverwiteSave(komaList);
+            EditorUtility.SetDirty(data);
+            AssetDatabase.SaveAssets();
         }
 
         void SetupSlot(PlayerType playerType)
