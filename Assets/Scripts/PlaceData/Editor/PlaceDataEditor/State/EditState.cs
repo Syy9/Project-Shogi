@@ -87,7 +87,7 @@ namespace PlaceData.Edit
             }
         }
 
-        void Reset()
+        void Clear()
         {
             foreach (var koma in komaList)
             {
