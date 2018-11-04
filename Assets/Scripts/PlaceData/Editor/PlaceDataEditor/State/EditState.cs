@@ -37,21 +37,21 @@ namespace PlaceData.Edit
                 };
                 return;
             }
-            EditorGUILayout.LabelField("編集中");
+            EditorGUILayout.LabelField("Editing");
             Owner.Context.Edit = (PlaceData) EditorGUILayout.ObjectField("PlaceData", Owner.Context.Edit, typeof(PlaceData), false);
-            if(GUILayout.Button("配置"))
+            if(GUILayout.Button("Replace"))
             {
                 Place(Owner.Context.Edit);
             }
-            if(GUILayout.Button("リセット"))
+            if(GUILayout.Button("Clear"))
             {
                 var message = "You cannot undo this action";
-                if(EditorUtility.DisplayDialog("Reset place data?",  message, "Reset", "Cancel"))
+                if(EditorUtility.DisplayDialog("Clear place data?",  message, "Clear", "Cancel"))
                 {
-                    Reset();
+                    Clear();
                 }
             }
-            if(GUILayout.Button("保存"))
+            if(GUILayout.Button("Save"))
             {
                 Save(Owner.Context.Edit, komaList);
             }

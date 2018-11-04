@@ -14,19 +14,19 @@ namespace PlaceData.Edit
 
         protected override void OnUpdate()
         {
-            EditorGUILayout.LabelField("準備中...PlaceDataをセットしてシーンを再生");
+            EditorGUILayout.LabelField("Setup...play scene and set PlaceData");
             Owner.Context.Edit = EditorGUILayout.ObjectField("PlaceData", Owner.Context.Edit, typeof(PlaceData), false) as PlaceData;
             if(PlaceDataEditor.IsEditScene())
             {
                 if (!EditorApplication.isPlaying)
                 {
-                    if (GUILayout.Button("シーンを再生する"))
+                    if (GUILayout.Button("Play EditScene"))
                     {
                         EditorApplication.isPlaying = true;
                     }
                 }
             } else {
-                if(GUILayout.Button("編集シーンに移動する"))
+                if(GUILayout.Button("Open EditScene"))
                 {
                     PlaceDataEditor.OpenEditScene();
                 }

@@ -47,7 +47,7 @@ namespace PlaceData.Edit
         {
             if (!PlaceDataEditor.IsEditScene())
             {
-                if (EditorUtility.DisplayDialog("PlaceDataEdit", "編集シーンを開きますか？", "はい", "いいえ"))
+                if (EditorUtility.DisplayDialog("PlaceDataEdit", "Open EditScene", "Open", "No"))
                 {
                     OpenEditScene();
                 }
