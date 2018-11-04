@@ -45,7 +45,11 @@ namespace PlaceData.Edit
             }
             if(GUILayout.Button("リセット"))
             {
-                Reset();
+                var message = "You cannot undo this action";
+                if(EditorUtility.DisplayDialog("Reset place data?",  message, "Reset", "Cancel"))
+                {
+                    Reset();
+                }
             }
             if(GUILayout.Button("保存"))
             {
