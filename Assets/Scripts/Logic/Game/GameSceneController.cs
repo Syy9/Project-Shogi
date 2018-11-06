@@ -7,6 +7,7 @@ using Zenject;
 public class GameSceneController : MonoBehaviour
 {
     [Inject] GameStateManager gameStateManager;
+
 	void Start ()
     {
         gameStateManager.DispachInitState();

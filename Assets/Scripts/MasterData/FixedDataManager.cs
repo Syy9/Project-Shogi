@@ -9,6 +9,7 @@ namespace MasterData
         {
             KomaDataProvider = new KomaDataProvider();
         }
+
         public IKomaDataProvider KomaDataProvider { get; private set; }
     }
 

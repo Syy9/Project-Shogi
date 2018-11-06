@@ -7,6 +7,7 @@ using Zenject;
 
 [DisallowMultipleComponent]
 public class Koma : MonoBehaviour {
+
     [Inject] IFixedDataManager FixedDataManager;
     [Inject] IUIBoard UIBoard;
     [Inject] KomaIconLoader IconLoader;

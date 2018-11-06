@@ -14,6 +14,7 @@ namespace PlaceData.Edit
         List<Koma> komaList = new List<Koma>();
         KomaType komaType;
         PlayerType playerType;
+
         protected override void OnEnter()
         {
             Owner.Context.Controller = GameObject.FindObjectOfType<PlaceDataEditController>();
@@ -39,11 +40,13 @@ namespace PlaceData.Edit
             }
             EditorGUILayout.LabelField("Editing");
             Owner.Context.Edit = (PlaceData) EditorGUILayout.ObjectField("PlaceData", Owner.Context.Edit, typeof(PlaceData), false);
-            if(GUILayout.Button("Replace"))
+
+            if (GUILayout.Button("Replace"))
             {
                 Place(Owner.Context.Edit);
             }
-            if(GUILayout.Button("Clear"))
+
+            if (GUILayout.Button("Clear"))
             {
                 var message = "You cannot undo this action";
                 if(EditorUtility.DisplayDialog("Clear place data?",  message, "Clear", "Cancel"))
@@ -51,7 +54,8 @@ namespace PlaceData.Edit
                     Clear();
                 }
             }
-            if(GUILayout.Button("Save"))
+
+            if (GUILayout.Button("Save"))
             {
                 Save(Owner.Context.Edit, komaList);
             }
@@ -59,12 +63,12 @@ namespace PlaceData.Edit
 
         void OnSelect(Vector2Int position)
         {
-            if(komaType == KomaType.None || playerType == PlayerType.None)
+            if (komaType == KomaType.None || playerType == PlayerType.None)
                 return;
 
             var koma = komaList.FirstOrDefault(k => k.Position == position);
             var initData = new Koma.InitData();
-            if(koma == null)
+            if (koma == null)
             {
                 initData.Type = komaType;
                 initData.Lv = 1;
@@ -72,12 +76,16 @@ namespace PlaceData.Edit
                 initData.PlayerType = playerType;
                 var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
                 komaList.Add(newKoma);
-            } else {
-                if(Owner.Context.Controller.FixedDataManager.KomaDataProvider.GetMaxLv(koma.Type) == koma.Lv)
+            }
+            else
+            {
+                if (Owner.Context.Controller.FixedDataManager.KomaDataProvider.GetMaxLv(koma.Type) == koma.Lv)
                 {
                     komaList.Remove(koma);
                     GameObject.Destroy(koma.gameObject);
-                } else {
+                }
+                else
+                {
                     initData.Type = koma.Type;
                     initData.Lv = koma.Lv + 1;
                     initData.InitPosition = koma.Position;
@@ -93,6 +101,7 @@ namespace PlaceData.Edit
             {
                 GameObject.Destroy(koma.gameObject);
             }
+
             komaList.Clear();
         }
 
@@ -126,7 +135,7 @@ namespace PlaceData.Edit
             var komaTypeArray = Enum.GetValues(typeof(KomaType)).Cast<KomaType>();
             foreach (var komaType in komaTypeArray)
             {
-                if(komaType == KomaType.None)
+                if (komaType == KomaType.None)
                     continue;
                 var initData = new Koma.InitData();
                 initData.Type = komaType;

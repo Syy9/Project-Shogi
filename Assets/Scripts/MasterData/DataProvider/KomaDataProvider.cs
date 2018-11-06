@@ -9,6 +9,7 @@ namespace MasterData
         KomaData Find(KomaType type, int lv = 1);
         int GetMaxLv(KomaType type);
     }
+
     public class KomaDataProvider : IDataCreater<KomaData> , IKomaDataProvider
     {
         public IEnumerable<KomaData> Data { get; private set; }

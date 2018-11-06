@@ -11,7 +11,6 @@ public class CoroutineService
             var obj = new GameObject("CoroutineUpdater");
             GameObject.DontDestroyOnLoad(obj);
             Updater = obj.AddComponent<CoroutineUpdater>();
-            
         }
         Updater.Push(coroutine);
     }
