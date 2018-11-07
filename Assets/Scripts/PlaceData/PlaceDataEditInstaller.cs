@@ -7,6 +7,7 @@ namespace PlaceData.Edit
     {
         [SerializeField] UIBoard UIBoardPrefab;
         [SerializeField] Transform UIBoardParent;
+
         public override void InstallBindings()
         {
             //Framework

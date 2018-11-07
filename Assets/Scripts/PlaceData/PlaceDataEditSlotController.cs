@@ -10,6 +10,7 @@ namespace PlaceData.Edit
     {
         public Action<Koma> OnSelect { private get; set; }
         List<Slot> _slotList = new List<Slot>();
+
         public void Add(Koma koma)
         {
             var obj = new GameObject();

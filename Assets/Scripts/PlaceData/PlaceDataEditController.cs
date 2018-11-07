@@ -15,6 +15,7 @@ namespace PlaceData.Edit
 
         [SerializeField] PlaceDataEditSlotController Player1Slot;
         [SerializeField] PlaceDataEditSlotController Player2Slot;
+
         public PlaceDataEditSlotController GetSlotController(PlayerType type)
         {
             switch (type)

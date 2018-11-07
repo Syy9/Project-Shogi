@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIBoardGridManager : MonoBehaviour {
+public class UIBoardGridManager : MonoBehaviour
+{
     public const int COLUMN_COUNT = 9;
     public const int ROW_COUNT = 9;
 
@@ -22,6 +23,7 @@ public class UIBoardGridManager : MonoBehaviour {
             });
         }
     }
+
     public Vector2 GetPosition(Vector2Int position)
     {
         int index = position.y * COLUMN_COUNT + position.x;

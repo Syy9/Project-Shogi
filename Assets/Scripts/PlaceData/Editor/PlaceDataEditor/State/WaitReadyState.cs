@@ -16,7 +16,7 @@ namespace PlaceData.Edit
         {
             EditorGUILayout.LabelField("Setup...play scene and set PlaceData");
             Owner.Context.Edit = EditorGUILayout.ObjectField("PlaceData", Owner.Context.Edit, typeof(PlaceData), false) as PlaceData;
-            if(PlaceDataEditor.IsEditScene())
+            if (PlaceDataEditor.IsEditScene())
             {
                 if (!EditorApplication.isPlaying)
                 {
@@ -25,14 +25,16 @@ namespace PlaceData.Edit
                         EditorApplication.isPlaying = true;
                     }
                 }
-            } else {
-                if(GUILayout.Button("Open EditScene"))
+            }
+            else
+            {
+                if (GUILayout.Button("Open EditScene"))
                 {
                     PlaceDataEditor.OpenEditScene();
                 }
             }
 
-            if(Owner.CanEdit())
+            if (Owner.CanEdit())
             {
                 Owner.ChangeState<EditState>();
                 return;

@@ -10,7 +10,9 @@ public interface IUIBoard
     Vector2 GetPosition(Vector2Int position);
 }
 
-public class UIBoard : MonoBehaviour, IUIBoard {
+public class UIBoard : MonoBehaviour, IUIBoard
+{
+
     [SerializeField] Transform komaParent;
     [SerializeField] UIBoardGridManager boardInput;
 
