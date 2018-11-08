@@ -8,7 +8,8 @@ public class GameStateinit : GameStateBase
         foreach (var place in Owner.PlaceData.placeList)
         {
             var initData = new Koma.InitData(place);
-            Owner.KomaFactory.Create(initData);
+            var koma = Owner.KomaFactory.Create(initData);
+            Owner.KomaManager.Add(koma);
         }
 
         Owner.ChangeState<GameStateSelect>();
