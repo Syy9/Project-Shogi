@@ -8,6 +8,7 @@ public interface IUIBoard
     Transform KomaParent { get; }
     Action<Vector2Int> OnSelect { get; set; }
     Vector2 GetPosition(Vector2Int position);
+    void SetHighlight(Vector2Int position, bool isHighLight);
 }
 
 public class UIBoard : MonoBehaviour, IUIBoard
@@ -29,5 +30,10 @@ public class UIBoard : MonoBehaviour, IUIBoard
     public Vector2 GetPosition(Vector2Int position)
     {
         return boardInput.GetPosition(position);
+    }
+
+    public void SetHighlight(Vector2Int position, bool isHighLight)
+    {
+        boardInput.SetHightligh(position, isHighLight);
     }
 }

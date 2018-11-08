@@ -31,4 +31,13 @@ public class UIBoardGridManager : MonoBehaviour
         var grid = transform.GetChild(index);
         return grid.transform.position;
     }
+
+    public void SetHightligh(Vector2Int position, bool isHighLight)
+    {
+        if (_buttons == null)
+            return;
+        var index = position.y * COLUMN_COUNT + position.x;
+        var button = _buttons[index];
+        button.targetGraphic.color = isHighLight ? Color.gray : Color.white;
+    }
 }
