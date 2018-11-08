@@ -9,6 +9,7 @@ public class GameStateManager : StateOwner
     [Inject] public IKomaFactory KomaFactory { get; private set; }
     [Inject] public IUIBoard UIBoard { get; private set; }
     [Inject] public PlaceData.Edit.PlaceData PlaceData { get; private set; }
+    [Inject] public KomaManager KomaManager { get; private set; }
 
     public override void DispachInitState()
     {

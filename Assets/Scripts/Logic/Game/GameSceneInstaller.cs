@@ -20,6 +20,7 @@ public class GameSceneInstaller : MonoInstaller<GameSceneInstaller>
         Container.Bind<IUIBoard>().FromComponentInNewPrefab(UIBoardPrefab).UnderTransform(UIBoardParent).AsSingle().NonLazy();
         Container.Bind<KomaIconLoader>().ToSelf().AsSingle();
         Container.BindFactoryCustomInterface<Koma.InitData, Koma, Koma.Factory, IKomaFactory>().FromFactory<KomaFactory>();
+        Container.Bind<KomaManager>().ToSelf().AsSingle();
 
         //State
         Container.Bind<GameStateManager>().ToSelf().AsSingle();
