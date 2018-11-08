@@ -11,14 +11,15 @@ public class UIBoardGridManager : MonoBehaviour
 
     public event Action<Vector2Int> OnSelect;
 
+    Button[] _buttons;
     void Awake()
     {
-        var buttons = GetComponentsInChildren<Button>();
-        for (int i = 0; i < buttons.Length; i++)
+        _buttons = GetComponentsInChildren<Button>();
+        for (int i = 0; i < _buttons.Length; i++)
         {
-            int x = i % COLUMN_COUNT;
-            int y = i / ROW_COUNT;
-            buttons[i].onClick.AddListener(() => {
+            int x = i % ROW_COUNT;
+            int y = i / COLUMN_COUNT;
+            _buttons[i].onClick.AddListener(() => {
                 OnSelect.Call(new Vector2Int(x, y));
             });
         }
