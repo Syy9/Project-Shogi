@@ -17,15 +17,16 @@ namespace PlaceData.Edit
 
         protected override void OnEnter()
         {
-            Owner.Context.Controller = GameObject.FindObjectOfType<PlaceDataEditController>();
-            if(Owner.Context.Controller == null)
+            EditContext.instance.Controller = GameObject.FindObjectOfType<PlaceDataEditController>();
+            if(EditContext.instance.Controller == null)
             {
                 throw new Exception("Cannot find PlaceDataEditController");
             }
 
-            Owner.Context.Controller.UIBoard.OnSelect = OnSelect;
+            EditContext.instance.Controller.UIBoard.OnSelect = OnSelect;
             SetupSlot(PlayerType.Player1);
             SetupSlot(PlayerType.Player2);
+
             Owner.Repaint();
         }
 
@@ -39,11 +40,11 @@ namespace PlaceData.Edit
                 return;
             }
             EditorGUILayout.LabelField("Editing");
-            Owner.Context.Edit = (PlaceData) EditorGUILayout.ObjectField("PlaceData", Owner.Context.Edit, typeof(PlaceData), false);
+            EditContext.instance.Edit = (PlaceData) EditorGUILayout.ObjectField("PlaceData", EditContext.instance.Edit, typeof(PlaceData), false);
 
             if (GUILayout.Button("Replace"))
             {
-                Place(Owner.Context.Edit);
+                Place(EditContext.instance.Edit);
             }
 
             if (GUILayout.Button("Clear"))
@@ -57,7 +58,7 @@ namespace PlaceData.Edit
 
             if (GUILayout.Button("Save"))
             {
-                Save(Owner.Context.Edit, komaList);
+                Save(EditContext.instance.Edit, komaList);
             }
         }
 
@@ -74,12 +75,12 @@ namespace PlaceData.Edit
                 initData.Lv = 1;
                 initData.InitPosition = position;
                 initData.PlayerType = playerType;
-                var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
+                var newKoma = EditContext.instance.Controller.KomaFactory.Create(initData);
                 komaList.Add(newKoma);
             }
             else
             {
-                if (Owner.Context.Controller.FixedDataManager.KomaDataProvider.GetMaxLv(koma.Type) == koma.Lv)
+                if (EditContext.instance.Controller.FixedDataManager.KomaDataProvider.GetMaxLv(koma.Type) == koma.Lv)
                 {
                     komaList.Remove(koma);
                     GameObject.Destroy(koma.gameObject);
@@ -114,7 +115,7 @@ namespace PlaceData.Edit
                 initData.Lv = place.Lv;
                 initData.InitPosition = place.Position;
                 initData.PlayerType = place.PlayerType;
-                var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
+                var newKoma = EditContext.instance.Controller.KomaFactory.Create(initData);
                 komaList.Add(newKoma);
             }
         }
@@ -129,7 +130,7 @@ namespace PlaceData.Edit
 
         void SetupSlot(PlayerType playerType)
         {
-            var slotController = Owner.Context.Controller.GetSlotController(playerType);
+            var slotController = EditContext.instance.Controller.GetSlotController(playerType);
             slotController.RemoveAll();
 
             var komaTypeArray = Enum.GetValues(typeof(KomaType)).Cast<KomaType>();
@@ -141,12 +142,12 @@ namespace PlaceData.Edit
                 initData.Type = komaType;
                 initData.Lv = 1;
                 initData.PlayerType = playerType;
-                var newKoma = Owner.Context.Controller.KomaFactory.Create(initData);
+                var newKoma = EditContext.instance.Controller.KomaFactory.Create(initData);
                 slotController.Add(newKoma);
             }
 
             slotController.OnSelect = (koma) => {
-                var otherSlotContrller = Owner.Context.Controller.GetOtherSlotController(playerType);
+                var otherSlotContrller = EditContext.instance.Controller.GetOtherSlotController(playerType);
                 otherSlotContrller.ResetSelect();
                 this.komaType = koma.Type;
                 this.playerType = koma.PlayerType;

@@ -15,7 +15,7 @@ namespace PlaceData.Edit
         protected override void OnUpdate()
         {
             EditorGUILayout.LabelField("Setup...play scene and set PlaceData");
-            Owner.Context.Edit = EditorGUILayout.ObjectField("PlaceData", Owner.Context.Edit, typeof(PlaceData), false) as PlaceData;
+            EditContext.instance.Edit = EditorGUILayout.ObjectField("PlaceData", EditContext.instance.Edit, typeof(PlaceData), false) as PlaceData;
             if (PlaceDataEditor.IsEditScene())
             {
                 if (!EditorApplication.isPlaying)
@@ -36,8 +36,10 @@ namespace PlaceData.Edit
 
             if (Owner.CanEdit())
             {
-                Owner.ChangeState<EditState>();
-                return;
+                EditorApplication.delayCall += () =>
+                {
+                    Owner.ChangeState<EditState>();
+                };
             }
         }
     }

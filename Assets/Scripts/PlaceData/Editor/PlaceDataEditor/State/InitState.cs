@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using StateMachine;
+using UnityEditor;
 using UnityEngine;
 namespace PlaceData.Edit
 {
@@ -8,7 +9,10 @@ namespace PlaceData.Edit
     {
         protected override void OnEnter()
         {
-            Owner.ChangeState<WaitReadyState>();
+            EditorApplication.delayCall += () =>
+            {
+                Owner.ChangeState<WaitReadyState>();
+            };
         }
     }
 

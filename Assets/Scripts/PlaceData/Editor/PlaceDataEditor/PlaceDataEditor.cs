@@ -13,7 +13,6 @@ namespace PlaceData.Edit
     {
         const string EditrScenePath = "Assets/Scripts/PlaceData/Editor/PlaceDataEditScene.unity";
         const string EditSceneName = "PlaceDataEditScene";
-        public EditContext Context = new EditContext();
         public Action RequireRepaint { private get; set; }
 
         protected override void SetupState()
@@ -30,7 +29,7 @@ namespace PlaceData.Edit
 
         public bool CanEdit()
         {
-            return EditorApplication.isPlaying && Context.Edit != null;
+            return EditorApplication.isPlaying && EditContext.instance.Edit != null;
         }
 
         public void OnGUI()
